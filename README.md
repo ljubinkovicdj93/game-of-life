@@ -1,50 +1,45 @@
-# Welcome to your Expo app 👋
+# Game of Life
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+This is a simulation of John Conway's game of life.
 
-## Get started
+The game evolves over time and is determined by its initial state and requires no further input.
 
-1. Install dependencies
+The game's state is updated based on these simple rules:
+- When and empty cell has 3 immediate neighbors, a new LIFE is born.
+- When a "live" or non-empty cell has 2 or 3 immediate neighbors, it stays alive.
+- When a "live" or non-empty cell has less than 2 immediate neighbors, it DIES of loneliness.
+- When a "live" or non-empty cell has more than 3 immediate neighbors, it DIES of overcrowding.
 
-   ```bash
-   npm install
-   ```
+Here is a visual demo of what that looks like:
 
-2. Start the app
+![visual-demo](./assets/images/game-of-life-demo.gif)
 
-   ```bash
-    npx expo start
-   ```
+The cells on the edges look at the opposite edges when determining their and their neighbors new state, ie: for a grid which is 4x4 a cell at the end will look at a neighbor in the start position.
 
-In the output, you'll find options to open the app in a
+1 in the first row will look to its left, bottom-left, bottom, bottom-right, right, top-left, top-right, and top (**the last row 1**)
+
+| 0 | 0 | 0 | 1 |
+|:-:|:-:|:-:|:-:|
+| 0 | 0 | 0 | 0 |
+| 0 | 0 | 0 | 0 |
+| 0 | 0 | 0 | 1 |
+
+
+# How to run the app?
+
+This app was created with the help of [Expo](https://expo.dev)
+
+Make sure to follow the installation instructions on their website and then just run the following:
+
+```bash
+   npx expo start
+```
+
+To view the app in a browser, simply press `w` while it is running.
+
+In the output, you'll also find options to open the app in a:
 
 - [development build](https://docs.expo.dev/develop/development-builds/introduction/)
 - [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
 - [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
 - [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
